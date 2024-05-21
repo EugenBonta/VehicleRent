@@ -3,6 +3,7 @@ import {computed, type ComputedRef, onMounted, ref} from 'vue'
 import {useCarRentsStore} from '@/stores/carsRents'
 import {storeToRefs} from 'pinia'
 import type {CarRent} from '@/interfaces/ws'
+import {endCarRent} from '@/api/api'
 
 const store = useCarRentsStore()
 const { carRents, loading, error } = storeToRefs(store)
@@ -26,6 +27,21 @@ const filteredCarRents: ComputedRef<Array<CarRent>> = computed(() => {
     return matchesIdnp && matchesPhone && matchesEmail && matchesCompleted
   })
 })
+
+const endRent = async (id: number) => {
+  const isConfirmed = confirm('Are you sure you want to end this rent?')
+
+  if (!isConfirmed) {
+    return
+  }
+
+  try {
+    await endCarRent(id)
+    await store.fetchCarRentsList()
+  } catch (error) {
+    console.error('Failed to end car rent:', error)
+  }
+}
 </script>
 
 <template>
@@ -94,6 +110,7 @@ const filteredCarRents: ComputedRef<Array<CarRent>> = computed(() => {
             variant="outlined"
             class="mb-2 button-border w-100"
             color="blue"
+            @click="endRent(rent.id)"
             :disabled="rent.finishDate != null"
           >
             <h3><b>end rent</b></h3>

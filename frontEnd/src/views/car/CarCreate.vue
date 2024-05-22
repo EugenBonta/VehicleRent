@@ -6,23 +6,7 @@ import Navbar from '@/views/Navbar.vue'
 
 const router = useRouter()
 
-const form = reactive({
-  vin: '32106516',
-  year: 2017,
-  brand: 'MB',
-  model: 'w213',
-  mileage: 250000,
-  engine: 'OM651',
-  fuel: 'Benzin',
-  power: 194,
-  type: 'Sedan',
-  photo: 'https://live.staticflickr.com/65535/52533263334_85eeb4ee79_b.jpg',
-  rent: false,
-  price: 17000,
-  transmission: 'Auto',
-  drivetrain: 'RWD',
-  seats: 5
-} as CarForm)
+const form = reactive({} as CarForm)
 
 const submitForm = async () => {
   try {

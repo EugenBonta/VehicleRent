@@ -10,11 +10,6 @@ const id = computed(() => route.params.id)
 const router = useRouter()
 
 const form = reactive({
-  numberOfDays: 1,
-  pricePerDay: 100,
-  idnp: '123456',
-  tel: '11111',
-  email: 'email@email.email',
   bike: { id: Number(id.value) }
 } as BikeRentForm)
 

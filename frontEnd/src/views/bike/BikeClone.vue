@@ -9,12 +9,7 @@ const id = computed(() => route.params.id)
 
 const router = useRouter()
 
-const form = reactive({
-  vin: '32106516',
-  year: 2017,
-  mileage: 250000,
-  photo: 'https://miro.medium.com/v2/resize:fit:872/1*YfsigfLSjLU7TnUqatw1Cw.jpeg'
-} as CloneVehicleForm)
+const form = reactive({} as CloneVehicleForm)
 
 const submitForm = async () => {
   try {

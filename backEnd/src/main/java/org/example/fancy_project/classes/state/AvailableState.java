@@ -10,7 +10,6 @@ public class AvailableState implements VehicleState {
 
     @Override
     public void endRent(Vehicle vehicle) {
-
     }
 
     @Override

@@ -2,6 +2,7 @@
 import {computed, reactive} from 'vue'
 import {createCarRent} from '@/api/api'
 import {useRoute, useRouter} from 'vue-router'
+import Navbar from '@/views/Navbar.vue'
 
 const route = useRoute()
 const id = computed(() => route.params.id)
@@ -29,6 +30,8 @@ const submitForm = async () => {
 
 <template>
   <v-container>
+    <Navbar />
+
     <v-form>
       <v-row>
         <v-col cols="12" md="6">

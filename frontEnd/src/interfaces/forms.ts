@@ -40,3 +40,10 @@ interface CarRentForm extends RentForm {
 interface BikeRentForm extends RentForm {
   bike: { id: number }
 }
+
+interface CloneVehicleForm {
+  vin: string
+  year: number
+  mileage: number
+  photo: string
+}

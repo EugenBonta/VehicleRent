@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import bikeIcon from '@/assets/images/bike.jpg'
-
 import {computed, type ComputedRef, onMounted, type Ref, ref, type UnwrapRef} from 'vue'
 import {useBikeStore} from '@/stores/bikes'
 import {storeToRefs} from 'pinia'
 import type {Bike} from '@/interfaces/ws'
 import {deleteBikeById} from '@/api/api'
+import Navbar from '@/views/Navbar.vue'
 
 const bikeStore = useBikeStore()
 
@@ -55,6 +54,8 @@ const deleteBike = async (id: number) => {
 
 <template>
   <v-container>
+    <Navbar />
+
     <div class="mb-6 px-6 pt-6 pb-0 bg-surface-variant">
       <v-row>
         <v-col cols="10">
@@ -99,7 +100,7 @@ const deleteBike = async (id: number) => {
       <v-row>
         <v-col cols="4">
           <v-row>
-            <v-img :width="250" :max-height="250" cover :src="bikeIcon"></v-img>
+            <v-img :width="250" :max-height="250" cover :src="bike.photo"></v-img>
           </v-row>
           <v-row :class="bike.state.available ? 'text-green' : 'text-red'" class="ml-10">
             <h2>
@@ -123,7 +124,6 @@ const deleteBike = async (id: number) => {
                 Engine: {{ bike.engine }} <br />
                 Power (HP): {{ bike.power }} <br />
                 Fuel: {{ bike.fuel }} <br />
-                Transmission: {{ bike.transmission }} <br />
                 Type: {{ bike.type }}
               </h3>
             </v-col>
@@ -148,7 +148,12 @@ const deleteBike = async (id: number) => {
                 <h3><b>rent</b></h3>
               </v-btn>
               <br />
-              <v-btn variant="outlined" class="mb-2 button-border w-100" color="yellow">
+              <v-btn
+                variant="outlined"
+                class="mb-2 button-border w-100"
+                color="yellow"
+                @click="$router.push({ name: 'bikeClone', params: { id: bike.id } })"
+              >
                 <h3><b>duplicate</b></h3>
               </v-btn>
               <br />

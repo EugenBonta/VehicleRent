@@ -15,7 +15,6 @@ public class VehicleStateConverter implements AttributeConverter<VehicleState, S
         } else if (state instanceof NotAvailableState) {
             return NOT_AVAILABLE_STATE;
         }
-        // Handle other states if needed
         return null;
     }
 
@@ -27,7 +26,6 @@ public class VehicleStateConverter implements AttributeConverter<VehicleState, S
         } else if (NOT_AVAILABLE_STATE.equals(stateString)) {
             return new NotAvailableState();
         }
-        // Handle other states if needed
         return null;
     }
 }

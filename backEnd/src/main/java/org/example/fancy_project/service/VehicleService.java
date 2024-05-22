@@ -34,7 +34,7 @@ public abstract class VehicleService<T extends Vehicle> {
 
     public T clone(Integer id, T vehicle) throws CloneNotSupportedException {
         T fetchedVehicle = vehicleDao.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Bike with ID " + id + " not found."));
+                .orElseThrow(() -> new IllegalArgumentException("Vehicle with ID " + id + " not found."));
 
         T newVehicle = (T) fetchedVehicle.clone();
 

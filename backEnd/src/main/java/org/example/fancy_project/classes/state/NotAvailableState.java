@@ -5,7 +5,6 @@ import org.example.fancy_project.classes.Vehicle;
 public class NotAvailableState implements VehicleState {
     @Override
     public void startRent(Vehicle vehicle) {
-
     }
 
     @Override

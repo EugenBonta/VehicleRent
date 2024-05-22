@@ -7,7 +7,6 @@ import lombok.Getter;
 @Entity
 @Table(name = "[user]")
 public class User {
-    // Getters
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
@@ -15,7 +14,6 @@ public class User {
     private String username;
     private String password;
 
-    // Private constructor to prevent direct instantiation
     private User() {
     }
 

@@ -4,6 +4,7 @@ import {storeToRefs} from 'pinia'
 import {useBikeRentStore} from '@/stores/bikesRents'
 import type {BikeRent} from '@/interfaces/ws'
 import {endBikeRent} from '@/api/api'
+import Navbar from '@/views/Navbar.vue'
 
 const store = useBikeRentStore()
 const { bikeRents, loading, error } = storeToRefs(store)
@@ -46,6 +47,8 @@ const endRent = async (id: number) => {
 
 <template>
   <v-container>
+    <Navbar />
+
     <div class="mb-6 px-6 pt-6 pb-0 bg-surface-variant">
       <v-row>
         <v-col cols="10">

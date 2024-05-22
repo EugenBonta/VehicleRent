@@ -14,6 +14,8 @@ export const createBike = (form: BikeForm) => apiBack.post('bike/create', form)
 export const createBikeRent = (form: BikeRentForm) => apiBack.post('rent/bike/createRent', form)
 export const endBikeRent = (id: number) => apiBack.put(`rent/bike/endRent/${id}`)
 export const deleteBikeById = (id: number) => apiBack.delete(`bike/delete/${id}`)
+export const cloneBike = (id: number, form: CloneVehicleForm) =>
+  apiBack.post(`/bike/clone/${id}`, form)
 
 export const fetchCarList = () => api.get('car/getAll')
 export const fetchCarRentList = () => api.get('rent/car/getAll')
@@ -21,3 +23,5 @@ export const createCar = (form: CarForm) => apiBack.post('car/create', form)
 export const createCarRent = (form: CarRentForm) => apiBack.post('rent/car/createRent', form)
 export const endCarRent = (id: number) => apiBack.put(`rent/car/endRent/${id}`)
 export const deleteCarById = (id: number) => apiBack.delete(`car/delete/${id}`)
+export const cloneCar = (id: number, form: CloneVehicleForm) =>
+  apiBack.post(`/car/clone/${id}`, form)

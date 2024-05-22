@@ -4,6 +4,7 @@ import {useCarRentsStore} from '@/stores/carsRents'
 import {storeToRefs} from 'pinia'
 import type {CarRent} from '@/interfaces/ws'
 import {endCarRent} from '@/api/api'
+import Navbar from '@/views/Navbar.vue'
 
 const store = useCarRentsStore()
 const { carRents, loading, error } = storeToRefs(store)
@@ -46,6 +47,8 @@ const endRent = async (id: number) => {
 
 <template>
   <v-container>
+    <Navbar />
+
     <div class="mb-6 px-6 pt-6 pb-0 bg-surface-variant">
       <v-row>
         <v-col cols="10">

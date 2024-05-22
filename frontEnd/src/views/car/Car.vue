@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import carIcon from '@/assets/images/car.jpg'
-
 import {computed, type ComputedRef, onMounted, type Ref, ref, type UnwrapRef} from 'vue'
 import {useCarStore} from '@/stores/cars'
 import {storeToRefs} from 'pinia'
 import type {Car} from '@/interfaces/ws'
 import {deleteCarById} from '@/api/api'
+import Navbar from '@/views/Navbar.vue'
 
 const carStore = useCarStore()
 
@@ -55,6 +54,8 @@ const deleteCar = async (id: number) => {
 
 <template>
   <v-container>
+    <Navbar />
+
     <div class="mb-6 px-6 pt-6 pb-0 bg-surface-variant">
       <v-row>
         <v-col cols="10">
@@ -99,7 +100,7 @@ const deleteCar = async (id: number) => {
       <v-row>
         <v-col cols="4">
           <v-row>
-            <v-img :width="250" :max-height="250" cover :src="carIcon"></v-img>
+            <v-img :width="250" :max-height="250" cover :src="car.photo"></v-img>
           </v-row>
           <v-row :class="car.state.available ? 'text-green' : 'text-red'" class="ml-10">
             <h2>
@@ -148,7 +149,12 @@ const deleteCar = async (id: number) => {
               >
                 <h3><b>rent</b></h3>
               </v-btn>
-              <v-btn variant="outlined" class="mb-2 button-border w-100" color="yellow">
+              <v-btn
+                variant="outlined"
+                class="mb-2 button-border w-100"
+                color="yellow"
+                @click="$router.push({ name: 'carClone', params: { id: car.id } })"
+              >
                 <h3><b>duplicate</b></h3>
               </v-btn>
               <v-btn

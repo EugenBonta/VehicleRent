@@ -8,6 +8,8 @@ import CarCreate from '@/views/car/CarCreate.vue'
 import BikeCreate from '@/views/bike/BikeCreate.vue'
 import BikeCreateRent from '@/views/bike/BikeCreateRent.vue'
 import CarCreateRent from '@/views/car/CarCreateRent.vue'
+import CarClone from '@/views/car/CarClone.vue'
+import BikeClone from '@/views/bike/BikeClone.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +40,11 @@ const router = createRouter({
       name: 'bikeCreateRent',
       component: BikeCreateRent
     },
+    {
+      path: '/bike/clone/:id',
+      name: 'bikeClone',
+      component: BikeClone
+    },
 
     {
       path: '/car',
@@ -58,6 +65,11 @@ const router = createRouter({
       path: '/car/createRent/:id',
       name: 'carCreateRent',
       component: CarCreateRent
+    },
+    {
+      path: '/car/clone/:id',
+      name: 'carClone',
+      component: CarClone
     }
   ]
 })
